@@ -14,7 +14,7 @@ class Appointment {
 	        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
 	        driver = new ChromeDriver();
 	        
-	        
+	          
 	        
 	        driver.get("https://katalon-demo-cura.herokuapp.com/");
 	        driver.findElement(By.xpath("//*[@id=\"btn-make-appointment\"]")).click();
@@ -32,6 +32,14 @@ class Appointment {
 	        Thread.sleep(4000);
 	        driver.findElement(By.xpath("//*[@id=\"btn-book-appointment\"]")).click();
 	        
+	        
+	        //Add Validate
+	        String result = driver.findElement(By.id("comment")).getText();
+	        
+	        if(result.equalsIgnoreCase("Heart"))
+	        	System.out.println("Pass");
+	        else
+	        	System.out.println("Fail");
 	        Thread.sleep(4000);
 	         driver.quit();
 	         driver = null;
